@@ -26,7 +26,7 @@ SECRET_KEY = 'm&66a4$(n1m+a*&u^!5#^y^^kw=1azxu@fra10ps63evf6c#n='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]','172.18.0.17']
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]','172.18.0.17', 'ip172-18-0-17-c37sqofnjsv000eo6qdg-8000.direct.labs.play-with-docker.com',]
 
 
 # Application definition
