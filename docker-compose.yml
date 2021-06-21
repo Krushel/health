@@ -48,3 +48,5 @@ services:
             - django
             - redis
             - celery
+volumes:
+  pgdata:
