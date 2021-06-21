@@ -9,11 +9,8 @@ services:
             - .:/usr/src/app/
         ports:
             - "8000:8000"
-        environment:
-            - DEBUG=1
-            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 ip172-18-0-17-c37sqofnjsv000eo6qdg-8000.direct.labs.play-with-docker.com [::1] 
-            - CELERY_BROKER=redis://redis:6379/0
-            - CELERY_BACKEND=redis://redis:6379/0
+        env_file:
+            - .env
         depends_on:
             - pgdb
             - redis
@@ -22,11 +19,8 @@ services:
         command: celery -A core worker -l INFO
         volumes:
             - .:/usr/src/app
-        environment:
-            - DEBUG=1
-            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
-            - CELERY_BROKER=redis://redis:6379/0
-            - CELERY_BACKEND=redis://redis:6379/0
+        env_file:
+            - .env
         depends_on:
             - django
             - redis
@@ -34,9 +28,9 @@ services:
         image: postgres
         container_name: pgdb
         environment:
-            - POSTGRES_DB=postgres
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=db
+            - POSTGRES_USER=user
+            - POSTGRES_PASSWORD=password
         volumes:
             - pgdata:/var/lib/postgresql/data/
     redis:
