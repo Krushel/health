@@ -38,7 +38,7 @@ services:
     redis:
         image: "redis:6.2.4"
     dashboard:
-        build: ./project
+        build: .
         command: flower -A core --port=5555 --broker=redis://redis:6379/0
         ports:
             - 5555:5555
