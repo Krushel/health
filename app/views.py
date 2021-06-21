@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.views.decorators.cache import cache_page
 
-CACHE_TTL = 600
+CACHE_TTL = 60 * 10 #10 minutes
 
 
 @cache_page(CACHE_TTL)
