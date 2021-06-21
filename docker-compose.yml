@@ -37,7 +37,3 @@ services:
             - "5432:5432"
     redis:
         image: "redis:6.2.4"
-        
-volumes:
-    pgdata:
-
