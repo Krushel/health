@@ -16,7 +16,7 @@ services:
             - redis
     celery:
         build: .
-        command: celery -A core worker -l INFO
+        command: celery -A core worker -l INFO --uid=nobody
         volumes:
             - .:/usr/src/app
         env_file:
@@ -37,17 +37,10 @@ services:
             - "5432:5432"
     redis:
         image: "redis:6.2.4"
-        command: "redis-server", "/usr/local/etc/redis/redis.conf"
-    dashboard:
-        build: .
-        command: flower -A core --port=5555 --broker=redis://redis:6379/0
+        volumes:
+          - ./redis.conf:/usr/local/etc/redis/redis.com
+        command: "redis-server /usr/local/etc/redis/redis.com"
         ports:
-            - 5555:5555
-        env_file:
-            - env
-        depends_on:
-            - django
-            - redis
-            - celery
+          - "6379:6379"
 volumes:
   pgdata:
