@@ -37,6 +37,7 @@ services:
             - "5432:5432"
     redis:
         image: "redis:6.2.4"
+        command: "redis-server", "/usr/local/etc/redis/redis.conf"
     dashboard:
         build: .
         command: flower -A core --port=5555 --broker=redis://redis:6379/0
