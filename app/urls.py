@@ -3,6 +3,6 @@ from . import views
 from .views import LandingView
 
 urlpatterns = [
-    path('health/', views.health_view),
-    path('', LandingView.as_view()),
+    path('health/', views.health_view, name='health'),
+    path('', LandingView.as_view(), name='landing'),
 ]
