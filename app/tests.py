@@ -16,4 +16,4 @@ class HealthViewTest(TestCase):
 
     def test_view_uses_correct_template(self):
         resp = self.client.get(reverse('health'))
-        self.assertEqual(resp.content, 'healthy')
+        self.assertEqual(resp.content.decode('utf-8'), 'healthy')
