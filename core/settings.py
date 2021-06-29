@@ -139,5 +139,5 @@ CACHES = {
 
 SESSION_EXPIRATION = 60 * 10
 
-CELERY_BROKER_URL = os.getenv('CELERY_BROKER')
-CELERY_RESULT_BACKEND = os.getenv('CELERY_BACKEND')
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
