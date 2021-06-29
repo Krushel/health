@@ -29,7 +29,7 @@ request.content_params
 "data": ""
 }, status=429)
 
-def handler500(request):
+def handler500(request, exception):
     return JsonResponse({
         "result": "error",
         "message": "Bad request",
@@ -39,7 +39,7 @@ def handler500(request):
         "data": ""
     }, status=500)
 
-def handler404(request):
+def handler404(request, exception):
     return JsonResponse({
         "result": "error",
         "message": "Page not found",
