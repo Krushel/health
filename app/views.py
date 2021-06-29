@@ -19,16 +19,6 @@ from django.views.generic import TemplateView
 class LandingView(TemplateView):
     template_name = "index.html"
 
-def too_many_requests(request, exception):
-    return JsonResponse({
-"result": "error",
-"message": "Too many requests",
-"params": {
-request.content_params
-},
-"data": ""
-}, status=429)
-
 def handler500(request):
     return JsonResponse({
         "result": "error",
