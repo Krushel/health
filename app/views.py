@@ -19,6 +19,7 @@ def health_view(request):
         "version":"0.1"
     }, status=200)
 
+
 from django.views.generic import TemplateView
 
 class LandingView(TemplateView):
@@ -30,6 +31,7 @@ def handler500(request):
         "message": "Unknown error",
         "data": "",
         "version":"0.1"
+
     }, status=500)
 
 def handler404(request, exception):
@@ -47,3 +49,4 @@ def handler400(request, exception):
         "data": "",
         "version":"0.1"
     }, status=400)
+
