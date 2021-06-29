@@ -29,7 +29,7 @@ request.content_params
 "data": ""
 }, status=429)
 
-def handler500(request, exception):
+def handler500(request):
     return JsonResponse({
         "result": "error",
         "message": "Bad request",
